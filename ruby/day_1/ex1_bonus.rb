@@ -1,6 +1,6 @@
 number = rand(10)
 while true
-  puts number
+
   puts "Number input : "
   input = gets().to_i
 
