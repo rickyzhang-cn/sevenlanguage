@@ -1,0 +1,89 @@
+$ lein repl
+nREPL server started on port 50248 on host 127.0.0.1 - nrepl://127.0.0.1:50248
+REPL-y 0.3.7, nREPL 0.2.10
+Clojure 1.7.0
+Java HotSpot(TM) Client VM 1.8.0_60-b27
+    Docs: (doc function-name-here)
+          (find-doc "part-of-name-here")
+  Source: (source function-name-here)
+ Javadoc: (javadoc java-object-or-class-here)
+    Exit: Control+D or (exit) or (quit)
+ Results: Stored in vars *1, *2, *3, an exception in *e
+
+user=> (defn twice-count [w] (* 2 (count w)))
+#'user/twice-count
+user=> (twice-count "seungdols company")
+34
+user=> (map twice-count people)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: people in this context, compiling:(C:\Users\Administrator\AppData\Local\Temp\form-init5601088577361019874.clj:1:1)
+
+user=> (map twice-count people)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: people in this context, compiling:(C:\Users\Administrator\AppData\Local\Temp\form-init5601088577361019874.clj:1:1)
+
+user=> (def v [3 1 2])
+#'user/v
+user=> (apply + v)
+6
+user=> (apply max v)
+3
+user=> (fil
+file-seq   filter     filterv
+user=> (filter
+filter    filterv
+user=> (filter odd? v)
+(3 1)
+user=> (filter #(< % 3) v)
+(1 2)
+user=> (def colors ["red" "blue"])
+#'user/colors
+user=> (def toys ["block" "car"])
+#'user/toys
+user=> (for [x colors] (str "I like " x))
+("I like red" "I like blue")
+user=> (reduce + [1 2 3 4 5])
+15
+user=> (range 1 0 3 10)
+
+ArityException Wrong number of args (4) passed to: core/range  clojure.lang.AFn.throwArity (AFn.java:429)
+user=> (range 1 10 2)
+(1 3 5 7 9)
+user=> (take 3 (repeat "seungdosl" ))
+("seungdosl" "seungdosl" "seungdosl")
+user=> (take 5 (iterate inc 2))
+(2 3 4 5 6)
+user=> (ref "Attack of the Clones")
+#object[clojure.lang.Ref 0x1446b43 {:status :ready, :val "Attack of the Clones"}]
+user=> (def movie (ref "Star wards"))
+#'user/movie
+user=> movie
+#object[clojure.lang.Ref 0x1cbcfad {:status :ready, :val "Star wards"}]
+user=> (deref movie)
+"Star wards"
+user=> @movie
+"Star wards"
+user=> (alter movie str ": The Empire Strikes Back")
+
+IllegalStateException No transaction running  clojure.lang.LockingTransaction.getEx (LockingTransaction.java:208)
+user=> (dosync (alter movie str ": The Empire Strikes Back"))
+"Star wards: The Empire Strikes Back"
+user=> (dosync (ref-set movie "Star Wars: The Revenge of the Sith"))
+"Star Wars: The Revenge of the Sith"
+user=> (atom "Split at your own risk")
+#object[clojure.lang.Atom 0x225b5 {:status :ready, :val "Split at your own risk"}]
+user=> (def danger (atom "Split at your own risk"))
+#'user/danger
+user=> danger
+#object[clojure.lang.Atom 0x125908c {:status :ready, :val "Split at your own risk"}]
+user=> @danger
+"Split at your own risk"
+user=> (reset! danger "Split with impunity")
+"Split with impunity"
+user=> danger
+#object[clojure.lang.Atom 0x125908c {:status :ready, :val "Split with impunity"}]
+user=> (def top-sellers (atom []))
+#'user/top-sellers
+user=> (swap! top-sellers conj {:title "Seven Languages", :author "Tate"})
+[{:title "Seven Languages", :author "Tate"}]
+user=> (swap! top-sellers conj {:title "Programming Clojure" :author "Halloway"})
+[{:title "Seven Languages", :author "Tate"} {:title "Programming Clojure", :author "Halloway"}]
+user=>

@@ -1,0 +1,137 @@
+user=> (* 10 10)
+100
+user=> (/ 1 3)
+1/3
+user=> (/ 2 4)
+1/2
+user=> (/ 2.0 4)
+0.5
+user=> (class(/ 1 3))
+clojure.lang.Ratio
+user=> (/ (/ 12 2) (/ 6 2))
+2
+user=> (+ 2 2 2 2)
+8
+user=> (mod 5 4)
+1
+user=> (- 8 4)
+4
+user=> (< 1 2 3)
+true
+user=> (< 1 2 3 4 1)
+false
+user=> (+ 3.0 3)
+6.0
+user=> (+ 3.0 3 5)
+11.0
+user=> (println "master yoda\nseungdols company")
+master yoda
+seungdols company
+nil
+user=> (str 12)
+"12"
+user=> (\a)
+
+ClassCastException java.lang.Character cannot be cast to clojure.lang.IFn  user/eval1250 (form-init6773730726463778253.clj:1)
+user=> \a
+\a
+user=> (str \a \b \c)
+"abc"
+user=> (= "a" \a)
+false
+user=> (= 1 2)
+false
+user=> (class true)
+java.lang.Boolean
+user=> (class (= 1 1))
+java.lang.Boolean
+user=> (if true (println "True it is"))
+True it is
+nil
+user=> (if (< 1 2)
+  #_=> (println "False it is not."))
+False it is not.
+nil
+user=> (first ())
+nil
+user=> (if 0 (println "True"))
+True
+nil
+user=> (if nil (pritln "nil"))
+
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: pritln in this context, compiling:(C:\Users\Administrator\AppData\Local\Temp\form-init6773730726463778253.clj:1:9)
+user=> (if nil (println "nil"))
+nil
+user=> (if "" (println "true"))
+true
+nil
+user=> (1 2 3)
+ClassCastException java.lang.Long cannot be cast to clojure.lang.IFn  user/eval1275 (form-init6773730726463778253.clj:1)
+
+user=> (list 1 2 3)
+(1 2 3)
+user=> '(1 2 3)
+(1 2 3)
+user=> (first '(:redad :rea))
+:redad
+user=> (last '(:redad :rea))
+:rea
+user=> (rest '(:redad :rea))
+(:rea)
+user=> (cons :seungdols '(:sedid :sdf))
+(:seungdols :sedid :sdf)
+user=> [:hutt :coffee :cookies]
+[:hutt :coffee :cookies]
+user=> (first [:coffee :coke :tanduri])
+:coffee
+user=> (nth [:coffee :coke :tanduri] 1)
+:coke
+user=> (last [:coffee :coke :tanduri])
+:tanduri
+user=> (last [:coffee :coke :tanduri] 2)
+
+ArityException Wrong number of args (2) passed to: core/last--4152  clojure.lang.AFn.throwArity (AFn.java:429)
+user=> (last [:coffee :coke :tanduri] 1)
+
+ArityException Wrong number of args (2) passed to: core/last--4152  clojure.lang.AFn.throwArity (AFn.java:429)
+user=> ([:coffee :coke :tanduri] 1)
+:coke
+user=> (first [:hutt :cookies :oishi])
+:hutt
+user=> (rest [:hutt :cookies :oishi])
+(:cookies :oishi)
+user=>
+
+user=>
+user=> #{:choi-seungdols :cho-seungdols :we-seungdols}
+#{:choi-seungdols :cho-seungdols :we-seungdols}
+user=> (def seungdols-company#{:choi-seungdols :cho-seungdols :we-seungdols})
+
+RuntimeException Map literal must contain an even number of forms  clojure.lang.Util.runtimeException (Util.java:221)
+RuntimeException Unmatched delimiter: )  clojure.lang.Util.runtimeException (Util.java:221)
+
+user=> (def seungdols-company #{:choi-seungdols :cho-seungdols :we-seungdols})
+#'user/seungdols-company
+user=> seungdols-compant
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: seungdols-compant in this context, compiling:(C:\Users\Administrator\AppData\Local\Temp\form-init8371126446406300676.clj:1:1053)
+
+user=> seungdols-company
+#{:choi-seungdols :cho-seungdols :we-seungdols}
+user=> (count seungdols-company)
+3
+user=> (sort seungdols-company)
+(:cho-seungdols :choi-seungdols :we-seungdols)
+user=> (sorted-set 2 3 5 1)
+#{1 2 3 5}
+user=> (clojure.set/union #{:skywalker} #{:vader})
+#{:vader :skywalker}
+user=> (clojure.set/differece #{1 2 3} #{2})
+
+CompilerException java.lang.RuntimeException: No such var: clojure.set/differece, compiling:(C:\Users\Administrator\AppData\Local\Temp\form-init8371126446406300676.clj:1:1)
+user=> (clojure.set/difference #{1 2 3} #{2})
+#{1 3}
+user=> (#{:java-jar :seungdol} :seungdol)
+:seungdol
+user=> (#{:java-jar :seungdol} :seungdols)
+nil
+user=>
