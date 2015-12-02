@@ -1,0 +1,232 @@
+GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+Prelude> 4
+4
+Prelude> 4 + 1.0
+5.0
+Prelude> "Hello," ++ "Haskell World"
+"Hello,Haskell World"
+Prelude> ['a','b']
+"ab"
+Prelude> (4 + 5)==9
+True
+Prelude> if(5 == 5) then "true"
+
+<interactive>:7:1:
+    parse error in if statement: missing required else clause
+Prelude> if (5 == 5) then "true"
+
+<interactive>:8:1:
+    parse error in if statement: missing required else clause
+Prelude> if ( 5== 5)
+
+<interactive>:9:1:
+    parse error in if statement: missing required then and else clauses
+Prelude> if ( 5== 5) then "false"
+
+<interactive>:10:1:
+    parse error in if statement: missing required else clause
+Prelude> if ( 5== 5) then "false" else "True"
+"false"
+Prelude> if(5==5) "True"
+
+<interactive>:12:1:
+    parse error in if statement: missing required then and else clauses
+Prelude> :set +t
+Prelude> 5
+5
+it :: Num a => a
+Prelude> let x = 10
+x :: Num a => a
+Prelude> x
+10
+it :: Num a => a
+Prelude> let double x = x * 2
+double :: Num a => a -> a
+Prelude> double 8
+16
+it :: Num a => a
+Prelude> :show path
+syntax:  :show [ args | prog | prompt | prompt2 | editor | stop | modules
+               | bindings | breaks | context | packages | language ]
+Prelude> :show paths
+current working directory:
+  C:\Users\Administrator\AppData\Local\Programs\minghc-7.10.2-i386\ghc-7.10.2\bi
+n
+module import search paths:
+  .
+Prelude> :cd c:\\study\\sevenlanguage\\haskell\\
+Prelude> :show paths
+current working directory:
+  c:\study\sevenlanguage\haskell
+module import search paths:
+  .
+Prelude> :load double.hs
+[1 of 1] Compiling Main             ( double.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> :load double_with_type.hs
+[1 of 1] Compiling Main             ( double_with_type.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> double 5
+10
+it :: Integer
+*Main> :t double
+double :: Integer -> Integer
+*Main> load double.hs
+
+<interactive>:27:1: Not in scope: ‘load’
+
+<interactive>:27:13: Not in scope: ‘hs’
+*Main> :load double.hs
+[1 of 1] Compiling Main             ( double.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> :t double
+double :: Num a => a -> a
+*Main> let fact x = if x == 0 then 1 else fact ( x - 1) * x
+fact :: (Eq a, Num a) => a -> a
+*Main> fact 3
+6
+it :: (Eq a, Num a) => a
+*Main> :load factorial.hs
+[1 of 1] Compiling Main             ( factorial.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> factorial 10
+3628800
+it :: Integer
+*Main> :load fact_with_guard
+[1 of 1] Compiling Main             ( fact_with_guard.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> fact_with_guard 10
+
+<interactive>:35:1: Not in scope: ‘fact_with_guard’
+*Main> :load fib.hs
+[1 of 1] Compiling Main             ( fib.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> fib 10
+89
+it :: Integer
+*Main> :load fib_tuple.hs
+[1 of 1] Compiling Main             ( fib_tuple.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> fib
+fib        fibResult  fibTuple
+*Main> fibTuple(0,1,4)
+(3,5,0)
+it :: (Integer, Integer, Integer)
+*Main> fib 100
+354224848179261915075
+it :: Integer
+*Main> fib 1000
+43466557686937456435688527675040625802564660517371780402481729089536555417949051
+89040387984007925516929592259308032263477520968962323987332247116164299644090653
+3187938298969649928516003704476137795166849228875
+it :: Integer
+*Main> let second =head . tail
+second :: [c] -> c
+*Main> second[1,2]
+2
+it :: Num c => c
+*Main> second[3,4,5]
+4
+it :: Num c => c
+*Main> let last = head . tail . head
+last :: [[c]] -> c
+*Main> last [1,2,3,4]
+
+<interactive>:46:1:
+    Non type-variable argument in the constraint: Num [c]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall c. Num [c] => c
+*Main> last [1,2,3]
+
+<interactive>:47:1:
+    Non type-variable argument in the constraint: Num [c]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall c. Num [c] => c
+*Main> let (h:t) = [1,2,3,4]
+h :: Num t => t
+t :: Num t => [t]
+*Main> h
+1
+it :: Num t => t
+*Main> t
+[2,3,4]
+it :: Num t => [t]
+*Main> :load lists.hs
+[1 of 1] Compiling Main             ( lists.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> size "Fascinating"
+11
+it :: Num a => a
+*Main> zip ["kirk"]["spock"]
+[("kirk","spock")]
+it :: [([Char], [Char])]
+*Main> zip ["seungdols","company"]["entire","relant"]
+[("seungdols","entire"),("company","relant")]
+it :: [([Char], [Char])]
+*Main> let h:t = [1,2,3]
+h :: Num t => t
+t :: Num t => [t]
+*Main> h
+1
+it :: Num t => t
+*Main> t
+[2,3]
+it :: Num t => [t]
+*Main> 1:[2,3]
+[1,2,3]
+it :: Num a => [a]
+*Main> [1]:[2,3]
+
+<interactive>:59:1:
+    Non type-variable argument in the constraint: Num [t]
+    (Use FlexibleContexts to permit this)
+    When checking that ‘it’ has the inferred type
+      it :: forall t. (Num t, Num [t]) => [[t]]
+*Main> [1]:[[2],[3,4]]
+[[1],[2],[3,4]]
+it :: Num t => [[t]]
+*Main> [1]:[]
+[[1]]
+it :: Num t => [[t]]
+*Main> :load all_even.hs
+[1 of 1] Compiling Main             ( all_even.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> all_even [1,3,4,5,7,9,10,11]
+
+<interactive>:63:1:
+    Not in scope: ‘all_even’
+    Perhaps you meant ‘allEven’ (line 3)
+*Main> [1..2]
+[1,2]
+it :: (Enum t, Num t) => [t]
+*Main> [1..4]
+[1,2,3,4]
+it :: (Enum t, Num t) => [t]
+*Main> take 5 [ 1..]
+[1,2,3,4,5]
+it :: (Enum a, Num a) => [a]
+*Main> [x * 2 | x <- [1,2,3]]
+[2,4,6]
+it :: Num t => [t]
+*Main> let crw = ["Kirk", "spock", "Mccoy"]
+crw :: [[Char]]
+*Main> [(a,b) | a <- crw]
+
+<interactive>:69:5: Not in scope: ‘b’
+*Main> [(a,b) | a <- crw, b <- crw]
+[("Kirk","Kirk"),("Kirk","spock"),("Kirk","Mccoy"),("spock","Kirk"),("spock","sp
+ock"),("spock","Mccoy"),("Mccoy","Kirk"),("Mccoy","spock"),("Mccoy","Mccoy")]
+it :: [([Char], [Char])]
+*Main> [(a,b) | a <- crw, b <- crw a/=b]
+
+<interactive>:71:32: Not in scope: ‘b’
+*Main> [(a,b) | a <- crw, b <- crw, a/=b]
+[("Kirk","spock"),("Kirk","Mccoy"),("spock","Kirk"),("spock","Mccoy"),("Mccoy","
+Kirk"),("Mccoy","spock")]
+it :: [([Char], [Char])]
+*Main> [(a,b) | a <- crw, b <- crw, a < b]
+[("Kirk","spock"),("Kirk","Mccoy"),("Mccoy","spock")]
+it :: [([Char], [Char])]
+*Main>
