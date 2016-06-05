@@ -1,55 +1,25 @@
-Source code for the programs you include should go in this directory
-(and subdirectories of this directory). You include this code into
-your document using
+# codes of Seven language
 
-  <code file="code/path.rb" />
+이 공간은 브루스 테이트의 세븐 랭귀지 책에 나온 코드들을 직접 입력 해본 것들을 담고 있습니다.
 
-The intent is to make all of this code runnable (and hence
-testable). However, sometimes this means putting more stuff int
-hesource files than you'd like to include int he book. To deal with
-this, you tell the <code> processor only to include certain chunks of
-your source in the book. You identify these chunks using comments
-containing "START:name" and "END:name". When you do
+본래, Bitbucket에 저장 되어 있었고, Github에 이주를 한 셈입니다.
 
- <code file="code/path.rb" part="name" />
+해당에 대한 상세한 내용은 실제 책을 구매하시어 읽어 보시는 것도 추천드립니다.
 
-then only the code bracketed by these comments will be included.
+물론, 현재는 Seven language mores 라는 책이 출판 된 것으로 알고 있으며, 이 책은 원서의 경우 3~4년 전
 
-Say you were writing a Ruby program to parse lines out of
-/etc/passwd. You might code the program as:
+나온 책임을 감안해주시길 바랍니다.
 
-  passwd.rb:
+# 이 책의 주요 포인트
 
-     #START:openclose
-     f = File.open("/etc/passwd")
-     # ...
-     #END:openclose
+해당 책은 다양한 언어에 대한 소개 및 특징을 잘 잡아내고 있으며, 해당 책의 가장 좋은 점은
 
-     #START:parse
-     while line = f.gets
-       puts line if line =~ dave
-     end
-     #END:parse
+루비와 얼랭의 소개라고 판단 됩니다.
 
-     #START:openclose
-     f.close 
-     #END:openclose
+특히, 루비를 좋아하고 있었던 저로선 반가운 내용이었으며, 얼랭의 Let it Crash의 철학에 반하게 된 계기가 되었습니다.
 
-In your book, you could then write.
+또한, 순식간에 엄청난 팩토리얼 값을 계산할 수 있고, 스도쿠를 풀어 버리는 프롤로그의 위대함을 알게되었으나,
 
-  Before processing the file, we have to open it. After finishing,
-  it's polite to close it.
+이해를 하지 못한점은 상당히 아쉽습니다.
 
-  <code file="code/passwd.rb" part="openclose" />
-
-  But what to be do with the open file? In this case, we'll read
-  through it and print any lines containing
-  <stringinfile>dave</stringinfile>.
-
-  <code file="code/passwd.rb" part="parse" />
-
-Notice how you can have multiple START/ENDs with the same name.
-
-
-You might want to subdivide this directory into subdirectories per
-project or chapter or whatever.
+모쪼록 많은 언어가, 많은 호기심을 불러 일으키는 세상이기에 항상 깨어 있는 자세가 필요하다고 느꼈습니다.
